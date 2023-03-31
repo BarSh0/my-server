@@ -1,12 +1,20 @@
 const express = require('express');
+const cors = require('cors');
 const FormRouter = require('./routes/form.routes');
 const UserRouter = require('./routes/users.routes');
 const SerialsRouter = require('./routes/serials.routes');
 
-const router = express.Router();
+const app = express();
 
-router.use('/forms', FormRouter);
-router.use('/users', UserRouter);
-router.use('/serials', SerialsRouter);
+app.use(cors());
+app.use(express.json());
 
-module.exports = router;
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.use('/forms', FormRouter);
+app.use('/users', UserRouter);
+app.use('/serials', SerialsRouter);
+
+module.exports = app;
