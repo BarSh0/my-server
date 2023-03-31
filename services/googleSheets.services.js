@@ -64,9 +64,15 @@ const serialNumberCheck = async (serialNumber, email) => {
 
   const data = convertRowsToObjectArray(getRows.data.values);
   const serialFromData = data.find((d) => d.SerialNumber === serialNumber);
+  const usedEmail = data.find((d) => d.Email === email);
 
   if (!serialFromData) {
     // serial number not found
+    return false;
+  }
+
+  if (usedEmail) {
+    // email already used
     return false;
   }
 

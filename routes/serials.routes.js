@@ -20,8 +20,8 @@ router.post('/serial-check', async (req, res) => {
   try {
     const { serialNumber, email } = req.body;
     const result = await serialNumberCheck(serialNumber, email);
-    if (!result) return res.status(400).send({ message: `Serial number not found or already submitted` });
-    res.status(200).send({ message: `Sucsses` });
+    if (!result) return res.send({ message: `Serial number not found or already submitted` });
+    res.send({ message: `Sucsses` });
   } catch (error) {
     console.log(error);
   }

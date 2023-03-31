@@ -1,16 +1,12 @@
 const express = require('express');
-const cors = require('cors');
 const FormRouter = require('./routes/form.routes');
 const UserRouter = require('./routes/users.routes');
 const SerialsRouter = require('./routes/serials.routes');
 
-const app = express();
+const router = express.Router();
 
-app.use(cors());
-app.use(express.json());
+router.use('/forms', FormRouter);
+router.use('/users', UserRouter);
+router.use('/serials', SerialsRouter);
 
-app.use('/forms', FormRouter);
-app.use('/users', UserRouter);
-app.use('/serials', SerialsRouter);
-
-module.exports = app;
+module.exports = router;

@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
+    "build": "npm i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,6 +16,8 @@
     "googleapis": "^114.0.0",
     "http": "^0.0.1-security",
     "mongoose": "^6.9.0",
-    "nodemon": "^2.0.20"
+    "netlify-lambda": "^2.0.16",
+    "nodemon": "^2.0.20",
+    "serverless-http": "^3.2.0"
   }
 }
